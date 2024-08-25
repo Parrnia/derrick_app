@@ -15,10 +15,32 @@ const validationSchema = Yup.object().shape({
   rep_id: Yup.string()
     .required('کد ملی معرف اجباری است')
     .matches(/^\d{10}$/, 'کد ملی معرف نامعتبر است'),
+  log_num: Yup.string()
+    .required('تلفن همراه اجباری است')
+    .matches(/^\d{11}$/, 'شماره تلفن نامعتبر است'),
+  log_pass: Yup.string()
+    .required('رمز عبور اجباری است')
+    .min(8, 'رمز عبور باید حداقل 8 کاراکتر باشد')
+    .matches(/[a-z]/, 'رمز عبور باید شامل حروف کوچک باشد')
+    .matches(/[A-Z]/, 'رمز عبور باید شامل حروف بزرگ باشد')
+    .matches(/\d/, 'رمز عبور باید شامل عدد باشد')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد')
 });
-
+const validationSchemalog = Yup.object().shape({
+  log_num: Yup.string()
+    .required('تلفن همراه اجباری است')
+    .matches(/^\d{11}$/, 'شماره تلفن نامعتبر است'),
+  log_pass: Yup.string()
+    .required('رمز عبور اجباری است')
+    .min(8, 'رمز عبور باید حداقل 8 کاراکتر باشد')
+    .matches(/[a-z]/, 'رمز عبور باید شامل حروف کوچک باشد')
+    .matches(/[A-Z]/, 'رمز عبور باید شامل حروف بزرگ باشد')
+    .matches(/\d/, 'رمز عبور باید شامل عدد باشد')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد')
+});
 const Login = () => {
   const [capVal, setCapVal] = useState(null);
+  const [logcapVal, setLogCapVal] = useState(null);
   const [values, setValues] = useState({
     firstname: '',
     lastName: '',
@@ -27,11 +49,20 @@ const Login = () => {
     desc: '',
     rep_id: '',
   });
+  const [logValues, setLogValues] = useState({
+    log_num: '',
+    log_pass: ''
+  });
   const [errors, setErrors] = useState({});
-
+  const [logerrors, setlogErrors] = useState({});
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+  };
+
+  const loghandleChange = (e) => {
+    const { name, value } = e.target;
+    setLogValues({ ...logValues, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -47,6 +78,22 @@ const Login = () => {
         newErrors[error.path] = error.message;
       });
       setErrors(newErrors);
+    }
+  };
+
+  const loghandleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await validationSchemalog.validate(logValues, { abortEarly: false });
+      if (logcapVal) {
+        // Handle form submission
+      }
+    } catch (err) {
+      const newErrors = {};
+      err.inner.forEach((error) => {
+        newErrors[error.path] = error.message;
+      });
+      setlogErrors(newErrors);
     }
   };
 
@@ -119,7 +166,40 @@ const Login = () => {
           ثبت نام
         </button>
       </div>
-      <div className="box1">Box 2</div>
+      <div className="box1">
+        <div className="logo"></div>
+        <p>ورود به حساب کاربری</p>
+        <div className="login-form-container">
+          <div className="login-form">
+            {logerrors.log_num && <div className="logerror">{logerrors.log_num}</div>}
+            <input
+              type="tel"
+              name="log_num"
+              value={logValues.log_num}
+              onChange={loghandleChange}
+              placeholder="تلفن همراه"
+            />
+            {logerrors.log_pass && <div className="logerror">{logerrors.log_pass}</div>}
+            <input
+              type="password"
+              name="log_pass"
+              value={logValues.log_pass}
+              onChange={loghandleChange}
+              placeholder="گذرواژه"
+            />
+          </div>
+        </div>
+        <div className="log-rec">
+          <ReCAPTCHA
+            sitekey="6Lcm3C4qAAAAALpONbqnFFx5zWM7EagWrIfplRNU"
+            onChange={(val) => setLogCapVal(val)}
+          />
+        </div>
+        <button className="login-btn" onClick={loghandleSubmit} disabled={!logcapVal}>
+          ورود
+        </button>
+        <div className="path"></div>
+      </div>
       <div className="arrow-up"></div>
       <div className="arrow"></div>
     </div>
