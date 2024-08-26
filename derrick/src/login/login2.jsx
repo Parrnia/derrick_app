@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './login.module.css';
+import styles from './login2.module.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import * as Yup from 'yup';
 
@@ -38,12 +38,16 @@ const validationSchemalog = Yup.object().shape({
     .matches(/\d/, 'رمز عبور باید شامل عدد باشد')
     .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد')
 });
-const Login = () => {
+const Login2 = () => {
   const [capVal, setCapVal] = useState(null);
   const [logcapVal, setLogCapVal] = useState(null);
   const [values, setValues] = useState({
     firstname: '',
     lastName: '',
+    bussinesname :'',
+    bussinesid: '',
+    Registrationnumber :'',
+    companyname : '',
     id: '',
     number: '',
     desc: '',
@@ -104,21 +108,37 @@ const Login = () => {
         <p>ایجاد حساب کاربری</p>
         <div className={styles['form-container']}>
           <div className={styles.form}>
-            {errors.firstname && <div className={styles.error}>{errors.firstname}</div>}
+            {errors.bussinesname && <div className={styles.error}>{errors.bussinesid}</div>}
             <input
               type="text"
-              name="firstname"
-              value={values.firstname}
+              name="bussinesname"
+              value={values.bussinesname}
               onChange={handleChange}
-              placeholder="نام"
+              placeholder="نام کسب و کار "
             />
-            {errors.lastName && <div className={styles.error}>{errors.lastName}</div>}
+            {errors.Registrationnumber && <div className={styles.error}>{errors.Registrationnumber}</div>}
             <input
               type="text"
-              name="lastName"
-              value={values.lastName}
+              name="Registrationnumber"
+              value={values.Registrationnumber}
               onChange={handleChange}
-              placeholder="نام خانوادگی"
+              placeholder="شماره ثبت"
+            />
+            {errors.bussinesid && <div className={styles.error}>{errors.bussinesid}</div>}
+            <input
+              type="text"
+              name="bussinesid"
+              value={values.bussinesid}
+              onChange={handleChange}
+              placeholder="شناسه ملی"
+            />
+            {errors.companyname && <div className={styles.error}>{errors.companyname}</div>}
+            <input
+              type="text"
+              name="companyname"
+              value={values.companyname}
+              onChange={handleChange}
+              placeholder="نام فروشگاه"
             />
             {errors.rep_id && <div className={styles.error}>{errors.rep_id}</div>}
             <input
@@ -130,23 +150,39 @@ const Login = () => {
             />
           </div>
           <div className={styles.form}>
+            {errors.firstname && <div className={styles.error}>{errors.firstname}</div>}
+            <input
+              type="text"
+              name="firstname"
+              value={values.firstname}
+              onChange={handleChange}
+              placeholder="نام مدیر عامل"
+            />
+            {errors.lastName && <div className={styles.error}>{errors.lastName}</div>}
+            <input
+              type="text"
+              name="lastName"
+              value={values.lastName}
+              onChange={handleChange}
+              placeholder="نام خانوادگی مدیر عامل"
+            />
+              {errors.id && <div className={styles.error}>{errors.id}</div>}
+            <input
+              type="text"
+              name="id"
+              value={values.desc}
+              onChange={handleChange}
+              placeholder="کدملی مدیر عامل"
+            />
             {errors.number && <div className={styles.error}>{errors.number}</div>}
             <input
               type="tel"
               name="number"
-              value={values.number}
+              value={values.rep_id}
               onChange={handleChange}
               placeholder="تلفن همراه"
             />
-            {errors.id && <div className={styles.error}>{errors.id}</div>}
-            <input
-              type="text"
-              name="id"
-              value={values.id}
-              onChange={handleChange}
-              placeholder="کد ملی"
-            />
-            <input
+               <input
               type="text"
               name="desc"
               value={values.desc}
@@ -155,7 +191,7 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className={styles.enum}></div>
+        <div className={styles.enum1}></div>
         <div className={styles.rec}>
           <ReCAPTCHA
             sitekey="6LcQQy4qAAAAAJHgf9Y0-Bbi9n_2ls6lfGbGIsbM"
@@ -206,4 +242,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login2;
