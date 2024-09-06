@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./login/login";
 import Login2 from "./login/login2";
+import Main from "./main/main";
+
 function App() {
   return (
     <BrowserRouter>
@@ -9,8 +11,9 @@ function App() {
           
            <Route path="/" element={<Login />} /> 
            <Route path="/log" element={<Login2 />} /> 
+           <Route path="/main" element={<Main />} /> 
         </Routes>
-
+  
       </div>
     </BrowserRouter>
   );

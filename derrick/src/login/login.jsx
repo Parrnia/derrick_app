@@ -99,6 +99,7 @@ const Login = () => {
 
   return (
     <div>
+      <div className={styles.background}>
       <div className={styles.box}>
         <div className={styles.logo}></div>
         <p>ایجاد حساب کاربری</p>
@@ -202,6 +203,7 @@ const Login = () => {
       </div>
       <div className={styles['arrow-up']}></div>
       <div className={styles.arrow}></div>
+    </div>
     </div>
   );
 };
