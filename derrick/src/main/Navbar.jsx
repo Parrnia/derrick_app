@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import logo from './Logo_Menue.png';
 import './Navbar.css';
 import Modal from 'react-modal';
+import Menu from './menu';
 const Navbar = () => {
   const [windowOpen, setWindowOpen] = useState(false);
   
@@ -55,15 +56,27 @@ const Navbar = () => {
             </li>
           </ul>
           <span className="navbar-toggler-icon" onClick={openModal}></span>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Example Modal"
-      >
-        <h2>Modal Title</h2>
-        <p>Modal content goes here.</p>
-        <button onClick={closeModal}>Close Modal</button>
-      </Modal>
+          <Modal
+         isOpen={modalIsOpen}
+         onRequestClose={closeModal}
+         contentLabel="Example Modal"
+       >
+         <Menu/>
+         <span 
+           onClick={closeModal} 
+           style={{ 
+             cursor: 'pointer', 
+             fontSize: '32px', 
+             position: 'absolute', 
+             top: '30px', 
+             left: '35px', 
+             color :'#5d62ff'
+
+           }}
+         >
+           ✕
+         </span>
+       </Modal>  
         </div>
       </div>
       
