@@ -263,3 +263,80 @@ body {
         margin-left: 40px;
         margin-top: 80px; 
       }
+      @media (max-width: 768px) {
+        .background {
+          margin: 0;
+          padding: 0;
+          height: 140vh; /* Make it full height */
+          background: linear-gradient( rgba(93,98,255,0.8 ),rgba(159,13,149,0.65 ) ,rgba(255,187,110,0.65 ));
+          width: 410px;
+          height: 1981px;
+        }
+        .box {
+          width: 377px;
+          height: 708px;
+          position: absolute;
+          left: 20px; /* Adjust this value as needed */
+          top: 796px;
+          background-image: none;
+      }
+       .box1 {
+        width: 377px;
+        height: 556px;
+        position: absolute;
+        justify-content: center;
+        left: 20px;
+        top: 193px;
+        background-image: none;
+    }
+    .form input, .login-form input {
+      width: 100%;
+      margin: 5px 0;
+      margin-bottom: 20px;
+    }
+  
+    .logo
+    {
+      height:110px;
+      width: 100px;
+      Left :290px;
+      Top: 35px;
+      background-image: url('./Logo_Menue2.png');
+    }
+    .box p, .box1 p {
+     /* ورود به حساب کاربری */
+
+position: absolute;
+width: 210px;
+height: 26px;
+left: 80px;
+top: 70px;
+font-family: "Doran";
+font-size: 26px;
+font-weight: normal;
+font-style: normal;
+text-align: right;
+color: #c2f0ff;
+
+  }
+
+  .enum {
+      position: static; /* تغییر به static */
+      width: 100%; /* عرض 100% */
+      left: auto; /* غیرفعال کردن موقعیت افقی */
+      top: auto; /* غیرفعال کردن موقعیت عمودی */
+      margin-top: 20px; /* فاصله بالایی */
+  }
+    .form-container,
+    .login-form-container {
+        grid-template-columns: 1fr; /* تغییر به یک ستون */
+    } 
+    .login-form-container 
+    {
+      margin-left: 10px;
+    }
+    .path
+    {
+      background-image: none;
+    }
+      }

@@ -5,26 +5,32 @@ import credit from './credit-card.png';
 import document from './document.png';
 import badge from './badge-check.png';
 import wallet from './wallet.png';
-import orbital from './orbital.png';
-import newImage from './ellipse.png'; 
+import orbital from './orbital.png'; 
+import newImage2 from './ellipse.png'; 
 import newImage1 from './group.png';
-
+import newImage from './orbital1.png'
 const Menu = () => {
     const [showAlternateContent, setShowAlternateContent] = useState(false);
-    const [showcontent , setshowcontent] = useState(false);
+    const [showLogisticsLinks, setShowLogisticsLinks] = useState(false); // New state for logistics links
+
     const handleTradeClick = () => {
         setShowAlternateContent(prevState => !prevState); 
     };
-    const handleTradeClick1 = () => {
-        setshowcontent(prevState => !prevState); 
+
+    const handleLogisticsClick = () => {
+        setShowLogisticsLinks(prevState => !prevState); // Toggle logistics links
     };
+
+    const handleLinkClick = () => {
+        setShowLogisticsLinks(false); // Hide logistics links when one is clicked
+    };
+
     return (
         <div classname='menu'>
-
-        <div class=" d-flex justify-content-end align-items-center">
-            <span class="navbar-text">دریک پی</span>
-            <img src={logo} alt="Logo" class="navbar-brand me-2" />
-        </div>
+            <div class=" d-flex justify-content-end align-items-center">
+                <span class="navbar-text">دریک پی</span>
+                <img src={logo} alt="Logo" class="navbar-brand me-2" />
+            </div>
             <label className='menulabel'>دسترسی سریع</label>
 
             <img src={document} className='menuimg' />
@@ -43,23 +49,25 @@ const Menu = () => {
                 <div>
                     <a href="#" className='menulink5'>بانک</a>
                     <a href="#" className='menulink6'>بیمه</a>
-                    <a href="#"  onClick={handleTradeClick}   className='menulink7'>مدیریت لجستیک</a>
-                    {
-                        showcontent ? ( <div>
-                            <a href="#" className='menulink5'> لینک۱</a>
-                          <a href="#" className='menulink6'>لینک ۲</a> </div>
-                             ): (   
-                               <></>   )}
+                    <a href="#" onClick={handleLogisticsClick} className='menulink7'>مدیریت لجستیک</a>
+
+                    {showLogisticsLinks && (
+                        <div>
+                            <a href="#"   onClick={handleLinkClick} className='menulink8'>خدمات فورواردر
+                            </a>
+                            <a href="#"    onClick={handleLinkClick} className='menulink9'>حمل ونقل
+                            </a>
+                        </div>
+                    )}
 
                     <img src={newImage} className='mainimg1' alt="New" />
-                    <img src={newImage1} className='mainimg2' alt="New" />
-
+                    
                 </div>
             ) : (
                 <div>
-                    <a href="#" className='menulink5'>معدن و کشاورزی</a>
-                    <a href="#" className='menulink6'>گردشگری و صنایع دستی</a>
-                    <a href="#" className='menulink7'>صنعت و خدمات</a>
+                    <a href="#" className='menulink15'>معدن و کشاورزی</a>
+                    <a href="#" className='menulink16'>گردشگری و صنایع دستی</a>
+                    <a href="#" className='menulink17'>صنعت و خدمات</a>
                     <img src={orbital} className='mainimg' alt="Orbital" />
                 </div>
             )}

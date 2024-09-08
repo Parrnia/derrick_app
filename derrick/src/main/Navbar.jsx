@@ -55,7 +55,17 @@ const Navbar = () => {
               <a className="nav-link" href="#">ثبت نام/ ورود</a>
             </li>
           </ul>
-          <span className="navbar-toggler-icon" onClick={openModal}></span>
+          <span  id= "navicon"
+            style={{ 
+              cursor: 'pointer', 
+              fontSize: '32px', 
+              position: 'absolute', 
+              top: '45px', 
+              left: '35px', 
+              color :'#5d62ff'
+             
+            }}
+          className=" navbar-toggler-icon " onClick={openModal}></span>
           <Modal
          isOpen={modalIsOpen}
          onRequestClose={closeModal}

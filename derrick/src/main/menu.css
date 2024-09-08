@@ -151,7 +151,7 @@ margin-top:410px;
     border-radius: 5px;
     margin-right: 10px; /* تنظیم فاصله بین هر لینک */
     position: absolute;
-    right:380px;
+    right:430px;
      border-width: 1px;
      margin-top:160px;
     font-size: 20px;
@@ -163,7 +163,7 @@ margin-top:410px;
     border-radius: 5px;
     margin-right: 10px; /* تنظیم فاصله بین هر لینک */
     position: absolute;
-    right:380px;
+    right:430px;
      border-width: 1px;
      margin-top:220px;
     font-size: 20px;
@@ -175,20 +175,83 @@ margin-top:410px;
     border-radius: 5px;
     margin-right: 10px; /* تنظیم فاصله بین هر لینک */
     position: absolute;
+    right:430px;
+     border-width: 1px;
+     margin-top:280px;
+    font-size: 20px;
+}
+.menulink15 {
+    text-decoration: none;
+    color: #5D62FF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px; /* تنظیم فاصله بین هر لینک */
+    position: absolute;
+    right:380px;
+     border-width: 1px;
+     margin-top:160px;
+    font-size: 20px;
+}
+.menulink16 {
+    text-decoration: none;
+    color: #5D62FF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px; /* تنظیم فاصله بین هر لینک */
+    position: absolute;
+    right:380px;
+     border-width: 1px;
+     margin-top:220px;
+    font-size: 20px;
+}
+.menulink17 {
+    text-decoration: none;
+    color: #5D62FF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px; /* تنظیم فاصله بین هر لینک */
+    position: absolute;
     right:380px;
      border-width: 1px;
      margin-top:280px;
     font-size: 20px;
 }
+
 .mainimg
 {   position :absolute;
     width:370px;
     top:250px;
     left: 100px;
 }
-.mainimg1
-{   position :absolute;
-    width:370px;
-    top:250px;
-  margin-right: 1200px;
+.mainimg1 {
+    position: absolute; /* Keep this to position it relative to the nearest positioned ancestor */
+    width: 370px; /* Maintain the width */
+    top: 140px; /* Maintain the vertical positioning */
+    left: 0; /* Align it to the left */
+    margin: 0; /* Remove any margin */
+}
+.menulink8 {
+    text-decoration: none;
+    color: #5D62FF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px; /* تنظیم فاصله بین هر لینک */
+    position: absolute;
+    right:500px;
+     border-width: 1px;
+     margin-top:340px;
+    font-size: 20px;
+}
+
+.menulink9 {
+    text-decoration: none;
+    color: #5D62FF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px; /* تنظیم فاصله بین هر لینک */
+    position: absolute;
+    right:500px;
+     border-width: 1px;
+     margin-top:400px;
+    font-size: 20px;
 }
