@@ -289,30 +289,37 @@ body {
         top: 193px;
         background-image: none;
     }
-    .form input, .login-form input {
-      width: 100%;
+     .login-form input {
+      width: 90%;
       margin: 5px 0;
       margin-bottom: 20px;
+      margin-right: 10px;
     }
-  
+     .form input
+     {
+      width: 90%;
+      margin: 5px 0;
+
+      margin-right: 10px;
+      margin-top: 15px;
+     }
     .logo
     {
-      height:110px;
-      width: 100px;
-      Left :290px;
+      height:60px;
+      width: 50px;
+      Left :270px;
       Top: 35px;
       background-image: url('./Logo_Menue2.png');
     }
     .box p, .box1 p {
-     /* ورود به حساب کاربری */
 
 position: absolute;
 width: 210px;
 height: 26px;
-left: 80px;
-top: 70px;
+left: 50px;
+top: 40px;
 font-family: "Doran";
-font-size: 26px;
+font-size: 22px;
 font-weight: normal;
 font-style: normal;
 text-align: right;
@@ -334,9 +341,48 @@ color: #c2f0ff;
     .login-form-container 
     {
       margin-left: 10px;
+      margin-top: 140px;
+
     }
+    .form-container
+    {
+      margin-left: 10px;
+      margin-top: 140px;
+      
+    }
+    .form
+  {
+    margin-bottom: 0px;
+  }
     .path
     {
       background-image: none;
     }
+    .log-rec
+    {
+      margin-top:10px;
+      margin-right:90px;
+      transform: scale(0.7); 
+       
+    }
+    .login-btn
+    {
+      margin-top:20px;
+      margin-left:115px;
+      width: 140px;
+    }
+
+    .logerror {
+        margin-right: 20px;
+      }
+      
+      .enum
+    {
+         position: absolute;
+        width: 150px;
+        Left :110px;
+        Top: 80px;
+       
+    }
+      
       }

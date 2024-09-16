@@ -5,19 +5,18 @@ import logo from './Logo_Menue.png';
 import './Navbar.css';
 import Modal from 'react-modal';
 import Menu from './menu';
-const Navbar = () => {
-  const [windowOpen, setWindowOpen] = useState(false);
-  
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-  
-    const openModal = () => {
-      setModalIsOpen(true);
-    };
-  
-    const closeModal = () => {
-      setModalIsOpen(false);
-    };
+const Navbar = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://code.jquery.com/jquery-3.6.0.slim.min.js'; // Load jQuery
@@ -30,10 +29,17 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light ">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -55,43 +61,60 @@ const Navbar = () => {
               <a className="nav-link" href="#">ثبت نام/ ورود</a>
             </li>
           </ul>
-          <span  id= "navicon"
-            style={{ 
-              cursor: 'pointer', 
-              fontSize: '32px', 
-              position: 'absolute', 
-              top: '45px', 
-              left: '35px', 
-              color :'#5d62ff'
-             
+          <span
+            id="navicon"
+            style={{
+              cursor: 'pointer',
+              fontSize: '32px',
+              position: 'absolute',
+              top: '45px',
+              left: '35px',
+              color: '#5d62ff',
             }}
-          className=" navbar-toggler-icon " onClick={openModal}></span>
-          <Modal
-         isOpen={modalIsOpen}
-         onRequestClose={closeModal}
-         contentLabel="Example Modal"
-       >
-         <Menu/>
-         <span 
-           onClick={closeModal} 
-           style={{ 
-             cursor: 'pointer', 
-             fontSize: '32px', 
-             position: 'absolute', 
-             top: '30px', 
-             left: '35px', 
-             color :'#5d62ff'
-
-           }}
-         >
-           ✕
-         </span>
-       </Modal>  
+            className="navbar-toggler-icon"
+            onClick={openModal}
+          ></span>
+       <Modal
+  isOpen={modalIsOpen}
+  onRequestClose={closeModal}
+  contentLabel="Example Modal"
+  style={{
+    content: {
+      width: '95%', // عرض 90% برای موبایل
+      maxWidth: '1200px', // حداکثر عرض برای صفحه نمایش‌های بزرگ‌تر
+      height: 'auto', // ارتفاع خودکار
+      maxHeight: '100%', // حداکثر ارتفاع برای جلوگیری از overflow
+      margin: 'auto', // وسط‌چین کردن
+      padding: '20px', // فضای داخلی
+      borderRadius: '8px', // گوشه‌های گرد
+      zIndex: 1000,
+      left: '10px',
+    },
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // رنگ پس‌زمینه overlay
+      zIndex: 999, // Ensure overlay appears above other content
+    },
+  }}
+>
+  <Menu />
+  <span
+    onClick={closeModal}
+    style={{
+      cursor: 'pointer',
+      fontSize: '32px',
+      position: 'absolute',
+      top: '20px',
+      left: '20px', // سمت راست برای دکمه بستن
+      color: '#5d62ff',
+      zIndex: 1001, // Ensure the close button appears above other content
+    }}
+  >
+    ✕
+  </span>
+</Modal>
         </div>
       </div>
-      
     </nav>
-    
   );
 };
 
