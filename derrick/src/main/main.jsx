@@ -1,22 +1,21 @@
 import { useState } from 'react';
 import styles from './main.module.css';
-import logo from './Logo_Menue.png';
-import NavBar from './Navbar';
-import Footer from './footer';
+import NavBar from './navbar/Navbar';
+import Footer from './footer/Footer';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import style from'./style.module.css'; // Assuming this is where you place the custom styles
-import logomain from './logo.png'
-import logo1 from './logo1.png'
-import logo2 from './logo2.png'
-import logo3 from './logo3.png'
-import line from './curved-lines.png'
-import atm from './atm-card.png'
-import baner from './baner.svg'
-import  slid1 from './slid.svg'
-import  slid2 from './slid1.svg'
-import  slid3 from './slid2.svg'
+import logomain from './assest/logo.png'
+import logo1 from './assest/logo1.png'
+import logo2 from './assest/logo2.png'
+import logo3 from './assest/logo3.png'
+import line from './assest/curved-lines.png'
+import atm from './assest/atm-card.png'
+import baner from './assest/baner.svg'
+import  slid1 from './assest/slid.svg'
+import  slid2 from './assest/slid1.svg'
+import  slid3 from './assest/slid2.svg'
 import './slider.css'
 
 function Main() {

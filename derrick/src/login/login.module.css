@@ -66,7 +66,7 @@ body {
         width: 338px;
         height: 58px;
         Left :210px;
-         top: 30px; 
+         top: 60px; 
         font-family: "Doran";
         font-size: 32px;
         font-weight: normal;
@@ -81,7 +81,7 @@ body {
         width: 338px;
         height: 58px;
         Left :210px;
-         top: 30px; 
+         top: 60px; 
         font-family: "Doran";
         font-size: 32px;
         font-weight: normal;
@@ -117,7 +117,7 @@ body {
         width: 90%;
         padding: 0 20px;
         direction: rtl;
-       
+       margin-left: 30px;
       }
       
       .form input {
@@ -269,7 +269,7 @@ body {
           padding: 0;
           height: 140vh; /* Make it full height */
           background: linear-gradient( rgba(93,98,255,0.8 ),rgba(159,13,149,0.65 ) ,rgba(255,187,110,0.65 ));
-          width: 410px;
+            width: 430px;
           height: 1981px;
         }
         .box {
@@ -299,7 +299,7 @@ body {
      {
       width: 90%;
       margin: 5px 0;
-
+ 
       margin-right: 10px;
       margin-top: 15px;
      }
@@ -327,13 +327,7 @@ color: #c2f0ff;
 
   }
 
-  .enum {
-      position: static; /* تغییر به static */
-      width: 100%; /* عرض 100% */
-      left: auto; /* غیرفعال کردن موقعیت افقی */
-      top: auto; /* غیرفعال کردن موقعیت عمودی */
-      margin-top: 20px; /* فاصله بالایی */
-  }
+ 
     .form-container,
     .login-form-container {
         grid-template-columns: 1fr; /* تغییر به یک ستون */
@@ -357,6 +351,7 @@ color: #c2f0ff;
     .path
     {
       background-image: none;
+      width: auto;
     }
     .log-rec
     {
@@ -371,18 +366,44 @@ color: #c2f0ff;
       margin-left:115px;
       width: 140px;
     }
-
+    .submit-btn
+  {
+    margin-top:20px;
+      margin-left:115px;
+      width: 140px;
+  }
     .logerror {
         margin-right: 20px;
+        font-size:18px;
       }
       
       .enum
     {
          position: absolute;
-        width: 150px;
-        Left :110px;
-        Top: 80px;
-       
-    }
+   
+        Left :180px;
+        Top: 110px;
       
+    }
+.form-container {
+ 
+  grid-gap: 0px;
+
+  margin-top: 150px;
+  padding: 0 20px;
+  
+}    
+
+.error {
+  margin-top: 10px;
+  font-size:18px;
+ margin-right: 10px;
+}
+.rec
+{
+  margin-top:10px;
+  margin-left:3px;
+  transform: scale(0.7); 
+   
+}
       }

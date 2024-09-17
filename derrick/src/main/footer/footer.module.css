@@ -9,9 +9,9 @@
   padding: 50px;
   margin-top: 250px;
 }
-.footer .footer-left,
-.footer .footer-center,
-.footer .footer-right {
+.footer .footerleft,
+.footer .footercenter,
+.footer .footerright {
   display: inline-block;
   vertical-align: top;
 }
@@ -19,7 +19,7 @@
 
 /* footer left*/
 
-.footer .footer-left {
+.footer .footerleft {
   width: 33%;
   padding-right: 15px;
 }
@@ -30,14 +30,18 @@
   font-size: 13px;
   font-weight: normal;
   margin: 0;
+
+
 }
 
 .footer .about span {
   display: block;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  width: 170px;
+  margin-left: 400px;
 }
 
 .footer .icons {
@@ -62,11 +66,11 @@
 
 /* footer center*/
 
-.footer .footer-center {
+.footer .footercenter {
   width: 30%;
 }
 
-.footer .footer-center i {
+.footer .footercenter i {
   background-color: #33383b;
   color: #ffffff;
   font-size: 25px;
@@ -79,26 +83,26 @@
   vertical-align: middle;
 }
 
-.footer .footer-center i.fa-envelope {
+.footer .footercenter i.fa-envelope {
   font-size: 17px;
   line-height: 38px;
 }
 
-.footer .footer-center p {
+.footer .footercenter p {
   display: inline-block;
   color: #ffffff;
   vertical-align: middle;
   margin: 0;
 }
 
-.footer .footer-center p span {
+.footer .footercenter p span {
   display: block;
   font-weight: normal;
   font-size: 14px;
   line-height: 2;
 }
 
-.footer .footer-center p a {
+.footer .footercenter p a {
   color: #0099ff;
   text-decoration: none;
 }
@@ -106,7 +110,7 @@
 
 /* footer right*/
 
-.footer .footer-right {
+.footer .footerright {
   width: 35%;
 }
 
@@ -149,15 +153,31 @@
   .footer {
     font-size: 14px;
   }
-  .footer .footer-left,
-  .footer .footer-center,
-  .footer .footer-right {
+  .footer .footerleft,
+  .footer .footercenter,
+  .footer .footerright {
     display: block;
     width: 100%;
     margin-bottom: 40px;
     text-align: center;
   }
-  .footer .footer-center i {
+  .footer .footercenter i {
     margin-left: 0;
   }
+}
+.footer .footercenter .contactInfo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 150px; /* Default margin for larger screens */
+
+  @media only screen and (max-width: 768px) {
+    margin-right: 0; /* Remove right margin for smaller screens */
+    margin-bottom: 20px; /* Add bottom margin for spacing on mobile */
+    align-items: center; /* Center align items for mobile */
+  }
+}
+.contactItem {
+  margin-bottom: 10px; /* Add your desired spacing value */
 }

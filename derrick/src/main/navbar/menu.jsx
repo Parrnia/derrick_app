@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import styles from'./menu.module.css'; 
-import logo from './Logo_Menue.png';
-import credit from './credit-card.png';
-import document from './document.png';
-import badge from './badge-check.png';
-import wallet from './wallet.png';
-import orbital from './orbital.png'; 
-import newImage2 from './ellipse.png'; 
-import newImage1 from './group.png';
-import newImage from './orbital1.png';
-import instagram from './instagram.png';
-import linkdin from './linkedin.png';
-import telegrm from './telegram.png';
+import logo from '../assest/Logo_Menue.png';
+import credit from '../assest/credit-card.png';
+import document from '../assest/document.png';
+import badge from '../assest/badge-check.png';
+import wallet from '../assest/wallet.png';
+import orbital from '../assest/orbital.png'; 
+import newImage2 from '../assest/ellipse.png'; 
+import newImage1 from '../assest/group.png';
+import newImage from '../assest/orbital1.png';
+import instagram from '../assest/instagram.png';
+import linkdin from '../assest/linkedin.png';
+import telegrm from '../assest/telegram.png';
 const Menu = () => {
     const [showAlternateContent, setShowAlternateContent] = useState(false);
     const [showLogisticsLinks, setShowLogisticsLinks] = useState(false);
@@ -31,7 +31,7 @@ const Menu = () => {
     return (
         <div className={styles.menu}>
             <div className="d-flex justify-content-end align-items-center">
-                <span className={styles.navbarText}>دریک پی</span>
+                <span className={styles.navbartext}>دریک پی</span>
                 <img src={logo} alt="Logo" className="navbar-brand me-2" />
             </div>
             <label className={styles.menulabel}>دسترسی سریع</label>
@@ -72,9 +72,9 @@ const Menu = () => {
                 </div>
             )}
             <div className={styles.socialcontainer}>
-                <img src={instagram} className={styles.social} id='social1' alt="Instagram" />
-                <img src={linkdin} className={styles.social} id='social2' alt="LinkedIn" />
-                <img src={telegrm} className={styles.social} id='social3' alt="Telegram" />
+                <img src={instagram} className={styles.social} id={styles.social1} alt="Instagram" />
+                <img src={linkdin} className={styles.social} id={styles.social2} alt="LinkedIn" />
+                <img src={telegrm} className={styles.social} id={styles.social3} alt="Telegram" />
             </div>
         </div>
     );

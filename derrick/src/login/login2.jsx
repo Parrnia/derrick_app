@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './login2.module.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import * as Yup from 'yup';
-
 const validationSchema = Yup.object().shape({
   firstname: Yup.string().required('نام اجباری است'),
   lastName: Yup.string().required('نام خانوادگی اجباری است'),
@@ -24,30 +23,23 @@ const validationSchema = Yup.object().shape({
     .matches(/[a-z]/, 'رمز عبور باید شامل حروف کوچک باشد')
     .matches(/[A-Z]/, 'رمز عبور باید شامل حروف بزرگ باشد')
     .matches(/\d/, 'رمز عبور باید شامل عدد باشد')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد'),
+  bussinesname: Yup.string().required('نام کسب و کار اجباری است'),
+  bussinesid: Yup.string().required('شناسه ملی اجباری است'),
+  Registrationnumber: Yup.string().required('شماره ثبت اجباری است'),
+  companyname: Yup.string().required('نام فروشگاه اجباری است'),
 });
-const validationSchemalog = Yup.object().shape({
-  log_num: Yup.string()
-    .required('تلفن همراه اجباری است')
-    .matches(/^\d{11}$/, 'شماره تلفن نامعتبر است'),
-  log_pass: Yup.string()
-    .required('رمز عبور اجباری است')
-    .min(8, 'رمز عبور باید حداقل 8 کاراکتر باشد')
-    .matches(/[a-z]/, 'رمز عبور باید شامل حروف کوچک باشد')
-    .matches(/[A-Z]/, 'رمز عبور باید شامل حروف بزرگ باشد')
-    .matches(/\d/, 'رمز عبور باید شامل عدد باشد')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد')
-});
+
 const Login2 = () => {
   const [capVal, setCapVal] = useState(null);
   const [logcapVal, setLogCapVal] = useState(null);
   const [values, setValues] = useState({
     firstname: '',
     lastName: '',
-    bussinesname :'',
+    bussinesname: '',
     bussinesid: '',
-    Registrationnumber :'',
-    companyname : '',
+    Registrationnumber: '',
+    companyname: '',
     id: '',
     number: '',
     desc: '',
@@ -58,7 +50,8 @@ const Login2 = () => {
     log_pass: ''
   });
   const [errors, setErrors] = useState({});
-  const [logerrors, setlogErrors] = useState({});
+  const [logerrors, setLogErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -88,7 +81,7 @@ const Login2 = () => {
   const loghandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await validationSchemalog.validate(logValues, { abortEarly: false });
+      await validationSchema.validate(logValues, { abortEarly: false });
       if (logcapVal) {
         // Handle form submission
       }
@@ -97,25 +90,25 @@ const Login2 = () => {
       err.inner.forEach((error) => {
         newErrors[error.path] = error.message;
       });
-      setlogErrors(newErrors);
+      setLogErrors(newErrors);
     }
   };
 
   return (
     <div>
-       <div className={styles.background}>
+    <div className={styles.background}>
       <div className={styles.box}>
         <div className={styles.logo}></div>
         <p>ایجاد حساب کاربری</p>
         <div className={styles['form-container']}>
           <div className={styles.form}>
-            {errors.bussinesname && <div className={styles.error}>{errors.bussinesid}</div>}
+            {errors.bussinesname && <div className={styles.error}>{errors.bussinesname}</div>}
             <input
               type="text"
               name="bussinesname"
               value={values.bussinesname}
               onChange={handleChange}
-              placeholder="نام کسب و کار "
+              placeholder="نام کسب و کار"
             />
             {errors.Registrationnumber && <div className={styles.error}>{errors.Registrationnumber}</div>}
             <input
@@ -167,11 +160,11 @@ const Login2 = () => {
               onChange={handleChange}
               placeholder="نام خانوادگی مدیر عامل"
             />
-              {errors.id && <div className={styles.error}>{errors.id}</div>}
+            {errors.id && <div className={styles.error}>{errors.id}</div>}
             <input
               type="text"
               name="id"
-              value={values.desc}
+              value={values.id}
               onChange={handleChange}
               placeholder="کدملی مدیر عامل"
             />
@@ -179,11 +172,12 @@ const Login2 = () => {
             <input
               type="tel"
               name="number"
-              value={values.rep_id}
+              value={values.number}
               onChange={handleChange}
               placeholder="تلفن همراه"
             />
-               <input
+            {errors.desc && <div className={styles.error}>{errors.desc}</div>}
+            <input
               type="text"
               name="desc"
               value={values.desc}
@@ -216,7 +210,7 @@ const Login2 = () => {
               onChange={loghandleChange}
               placeholder="تلفن همراه"
             />
-            {logerrors.log_pass && <div className={styles.logerror} >{logerrors.log_pass}</div>}
+            {logerrors.log_pass && <div className={styles.logerror}>{logerrors.log_pass}</div>}
             <input
               type="password"
               name="log_pass"
@@ -232,7 +226,7 @@ const Login2 = () => {
             onChange={(val) => setLogCapVal(val)}
           />
         </div>
-        <button className={styles['login-btn']}  onClick={loghandleSubmit} disabled={!logcapVal}>
+        <button className={styles['login-btn']} onClick={loghandleSubmit} disabled={!logcapVal}>
           ورود
         </button>
         <div className={styles.path}></div>
@@ -240,7 +234,7 @@ const Login2 = () => {
       <div className={styles['arrow-up']}></div>
       <div className={styles.arrow}></div>
     </div>
-    </div>
+  </div>
   );
 };
 
