@@ -410,4 +410,18 @@ margin-top:410px;
  
 }
 }
-
+.menulink.active,
+.menulink1.active,
+.menulink2.active,
+.menulink3.active,
+.menulink4.active,
+.menulink5.active,
+.menulink6.active,
+.menulink7.active,
+.menulink8.active,
+.menulink9.active,
+.menulink15.active,
+.menulink16.active,
+.menulink17.active {
+    color:#A900FF; /* رنگ هنگام کلیک */
+}

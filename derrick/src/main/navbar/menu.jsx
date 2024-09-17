@@ -15,17 +15,17 @@ import telegrm from '../assest/telegram.png';
 const Menu = () => {
     const [showAlternateContent, setShowAlternateContent] = useState(false);
     const [showLogisticsLinks, setShowLogisticsLinks] = useState(false);
+    const [activeTrade, setActiveTrade] = useState(false); // برای لینک تجارت
+    const [activeLogistics, setActiveLogistics] = useState(false); // برای لینک مدیریت لجستیک
 
     const handleTradeClick = () => {
         setShowAlternateContent(prevState => !prevState);
+        setActiveTrade(prevState => !prevState); // تغییر حالت لینک تجارت
     };
 
     const handleLogisticsClick = () => {
         setShowLogisticsLinks(prevState => !prevState);
-    };
-
-    const handleLinkClick = () => {
-        setShowLogisticsLinks(false);
+        setActiveLogistics(prevState => !prevState); // تغییر حالت لینک لجستیک
     };
 
     return (
@@ -46,18 +46,30 @@ const Menu = () => {
             <a href="#" className={styles.menulink3}>کارت گارانتی</a>
 
             <label className={styles.menulabel1}>منو</label>
-            <a href="#" onClick={handleTradeClick} className={styles.menulink4}>تجارت</a>
+            <a 
+                href="#" 
+                onClick={handleTradeClick} 
+                className={`${styles.menulink4} ${activeTrade ? styles.active : ''}`} 
+            >
+                تجارت
+            </a>
 
             {showAlternateContent ? (
                 <div>
                     <a href="#" className={styles.menulink5}>بانک</a>
                     <a href="#" className={styles.menulink6}>بیمه</a>
-                    <a href="#" onClick={handleLogisticsClick} className={styles.menulink7}>مدیریت لجستیک</a>
+                    <a 
+                        href="#" 
+                        onClick={handleLogisticsClick} 
+                        className={`${styles.menulink7} ${activeLogistics ? styles.active : ''}`} 
+                    >
+                        مدیریت لجستیک
+                    </a>
 
                     {showLogisticsLinks && (
                         <div>
-                            <a href="#" onClick={handleLinkClick} className={styles.menulink8}>خدمات فورواردر</a>
-                            <a href="#" onClick={handleLinkClick} className={styles.menulink9}>حمل ونقل</a>
+                            <a href="#" className={styles.menulink8}>خدمات فورواردر</a>
+                            <a href="#" className={styles.menulink9}>حمل ونقل</a>
                         </div>
                     )}
 
