@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './login2.module.css';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 import * as Yup from 'yup';
 const validationSchema = Yup.object().shape({
   firstname: Yup.string().required('نام اجباری است'),
@@ -31,6 +33,15 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login2 = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/log'); 
+  };
+  const handleArrowClick = () => {
+    navigate(-1); 
+  };
+
   const [capVal, setCapVal] = useState(null);
   const [logcapVal, setLogCapVal] = useState(null);
   const [values, setValues] = useState({
@@ -93,8 +104,12 @@ const Login2 = () => {
       setLogErrors(newErrors);
     }
   };
+  const captchaRef = useRef(null)
+
 
   return (
+
+
     <div>
     <div className={styles.background}>
       <div className={styles.box}>
@@ -186,12 +201,16 @@ const Login2 = () => {
             />
           </div>
         </div>
-        <div className={styles.enum1}></div>
+        <div>
+      <div className={styles.enum1} onClick={handleClick}></div>
+    </div>
         <div className={styles.rec}>
           <ReCAPTCHA
-            sitekey="6LcQQy4qAAAAAJHgf9Y0-Bbi9n_2ls6lfGbGIsbM"
+            sitekey="6LcddlUqAAAAAEn6_ivwd7R65bq09MBCsSvUCsav"
+             ref={captchaRef}
             onChange={(val) => setCapVal(val)}
           />
+    
         </div>
         <button className={styles['submit-btn']} onClick={handleSubmit} disabled={!capVal}>
           ثبت نام
@@ -222,7 +241,7 @@ const Login2 = () => {
         </div>
         <div className={styles['log-rec']}>
           <ReCAPTCHA
-            sitekey="6Lcm3C4qAAAAALpONbqnFFx5zWM7EagWrIfplRNU"
+            sitekey="6Le7eVUqAAAAABzIvY29P2SrtuXYEm9UZbuQ7Ewo"
             onChange={(val) => setLogCapVal(val)}
           />
         </div>
@@ -232,7 +251,7 @@ const Login2 = () => {
         <div className={styles.path}></div>
       </div>
       <div className={styles['arrow-up']}></div>
-      <div className={styles.arrow}></div>
+      <div className={styles.arrow}  onClick={handleArrowClick} ></div>
     </div>
   </div>
   );

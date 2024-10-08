@@ -41,6 +41,7 @@
            opacity: 1.00;
            background-image: url('./arrow.png');
            background-size: cover;
+           cursor: pointer;
        }
        
        .logo {
@@ -94,6 +95,7 @@
            Left :550px;
            Top: 174px;
            background-image: url('./Enumm.png');
+           cursor: pointer;
        }
    
        .form-container {

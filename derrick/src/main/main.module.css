@@ -188,8 +188,8 @@
   }
   .baner3
   {
-    width: 1200px;
-  height: 600px;
+  
+
   border-radius: 25px;
   margin: 200px auto;
   display: flex; /* Use Flexbox for layout */
@@ -200,25 +200,13 @@
   padding: 20px;
 
   }
-  .box {
-      /* Rectangle 37 */
-      width: 850px;
-      height: 500px;
-      border-radius: 25px;
-      margin-left: 10px;
-      filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.2));
-      background: #f5f5f5;
-  
-      /* New styles for sticking to the left */
-      position: absolute;
-      left: 0;
-  }
+
   .bannertext2 {
       position: absolute;
    
       color: rgb(0, 0, 0);
       text-align: center;
-      z-index: 1;
+     
   
   filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.3 ));
   
@@ -263,8 +251,7 @@
   .credittext
 {
   position: absolute;
-  width: 750px;
-  height: 500px;
+  
   font-family: "Dubai";
   font-size: 28px;
   font-weight: bold;
@@ -360,6 +347,7 @@
       .baner3 {
         flex-direction: column;
         align-items: flex-start;
+       
       }
       .bannerImage {
         width: 20%;
@@ -370,11 +358,11 @@
       
     }
       .box {
-        width: 100%;
-    
-        margin: 150px 0;
+        width: 50%;
+  
+        margin: 100px 0;
         border-radius: 15px;
-     
+  
         
     }
 
@@ -388,7 +376,7 @@
     .line {
         width: 150px;
         right: 20%;
-        margin-right: 50%;
+        margin-right: 40%;
     }
 
     .atm {
@@ -410,3 +398,69 @@
         
     }
     }
+
+    .cardt {
+      flex: 0 0 auto;
+      width: 600px;
+      margin-right: 50px;
+      border-radius: 5px;
+      padding: 20px;
+      scroll-snap-align: start;
+      transition: transform 0.3s;
+    }
+    .container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      height: 600px; /* Adjust the height as needed */
+    }
+ 
+
+    .card {
+      flex: 0 0 auto;
+      width: 850px;
+      margin-right: 50px;
+
+      
+      border-radius: 5px;
+      padding: 20px;
+      scroll-snap-align: start;
+      transition: transform 0.3s;
+    }
+  
+
+    .box {
+      /* Rectangle 37 */
+      width: 850px;
+      height: 500px;
+      border-radius: 25px;
+      margin-left: 10px;
+      filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.2));
+      background: #f5f5f5;
+  
+      /* New styles for sticking to the left */
+      position: relative;
+  margin-bottom: 0px;
+  }
+
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack cards vertically */
+      height: auto; /* Adjust height for vertical layout */
+      overflow-x: hidden;
+      
+
+    }
+     .card
+     {
+      width: 400px;
+      margin :0px;
+      margin-right: 40px;
+     }
+    .box {
+      width: 100%; /* Full width on mobile */
+    
+      margin-bottom: 20px; /* Space between stacked cards */
+    }
+  }

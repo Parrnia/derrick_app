@@ -45,3 +45,28 @@ color: #5d62ff;
 
 }
 
+@media (max-width: 768px) {
+  .navbar-nav
+  {
+    margin-right: 100px;
+  }
+
+
+}
+@keyframes modalOpen {
+  from {
+      transform: translateY(-100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+@keyframes modalClose {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(-100%);
+  }
+}

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './login.module.css';
-import ReCAPTCHA from 'react-google-recaptcha';
 import * as Yup from 'yup';
-
+import { useNavigate } from 'react-router-dom';
 const validationSchema = Yup.object().shape({
   firstname: Yup.string().required('نام اجباری است'),
   lastName: Yup.string().required('نام خانوادگی اجباری است'),
@@ -38,7 +37,43 @@ const validationSchemalog = Yup.object().shape({
     .matches(/\d/, 'رمز عبور باید شامل عدد باشد')
     .matches(/[!@#$%^&*(),.?":{}|<>]/, 'رمز عبور باید شامل کاراکتر خاص باشد')
 });
+
+const ReCAPTCHAManual = ({ sitekey, onChange }) => {
+  const recaptchaRef = useRef(null);
+
+  useEffect(() => {
+    const loadScript = async () => {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+
+      const grecaptcha = await window.grecaptcha;
+      const recaptcha = await grecaptcha.render(recaptchaRef.current, {
+        sitekey,
+        callback: onChange,
+      });
+
+      return () => grecaptcha.reset(recaptcha);
+    };
+
+    loadScript();
+  }, [sitekey, onChange]);
+
+  return <div ref={recaptchaRef} />;
+};
+
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/log2'); 
+  };
+  const handleArrowClick = () => {
+    navigate(-1); 
+  };
+
   const [capVal, setCapVal] = useState(null);
   const [logcapVal, setLogCapVal] = useState(null);
   const [values, setValues] = useState({
@@ -156,10 +191,10 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className={styles.enum}></div>
+        <div className={styles.enum}  onClick={handleClick}  ></div>
         <div className={styles.rec}>
-          <ReCAPTCHA
-            sitekey="6LcQQy4qAAAAAJHgf9Y0-Bbi9n_2ls6lfGbGIsbM"
+          <ReCAPTCHAManual
+            sitekey="6LdEf1UqAAAAACbfmFwK4z_sB5WUpDfCB2C8rZUb"
             onChange={(val) => setCapVal(val)}
           />
         </div>
@@ -191,8 +226,8 @@ const Login = () => {
           </div>
         </div>
         <div className={styles['log-rec']}>
-          <ReCAPTCHA
-            sitekey="6Lcm3C4qAAAAALpONbqnFFx5zWM7EagWrIfplRNU"
+          <ReCAPTCHAManual
+            sitekey="6LfCf1UqAAAAACHZ6HbJAltai5SfqEcXIly5FZEH"
             onChange={(val) => setLogCapVal(val)}
           />
         </div>
@@ -202,7 +237,7 @@ const Login = () => {
         <div className={styles.path}></div>
       </div>
       <div className={styles['arrow-up']}></div>
-      <div className={styles.arrow}></div>
+      <div className={styles.arrow}  onClick={handleArrowClick} ></div>
     </div>
     </div>
   );
