@@ -149,7 +149,7 @@
   margin: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .footer {
     font-size: 14px;
   }
@@ -172,7 +172,7 @@
   flex-direction: column;
   margin-right: 150px; /* Default margin for larger screens */
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     margin-right: 0; /* Remove right margin for smaller screens */
     margin-bottom: 20px; /* Add bottom margin for spacing on mobile */
     align-items: center; /* Center align items for mobile */

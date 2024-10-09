@@ -75,21 +75,23 @@ function Main() {
     <div className={styles.background}>
       <NavBar />
       <div className="slider">
-        <Slider {...settings}>
-          <div>
-            <img src={s1} alt="Slider Image 1" />
-          </div>
-          <div>
-            <img   src={s2}  alt="Slider Image 2" />
-          </div>
-          <div>
-            <img  src={s3}  alt="Slider Image 3" />
-          </div>
-          <div>
-            <img  src={s4}  alt="Slider Image 3" />
-          </div>
-        </Slider>
-      </div>
+  <Slider {...settings} >
+    <div>
+      <img src={s1} alt="Slider Image 1" />
+    </div>
+    <div>
+      <img src={s2} alt="Slider Image 2" />
+    </div>
+    <div>
+      <img src={s3} alt="Slider Image 3" />
+    </div>
+    <div>
+      <img src={s4} alt="Slider Image 4" />
+    </div>
+  </Slider>
+
+
+</div>
 
       <div className={styles.baner} >
         
@@ -111,7 +113,6 @@ function Main() {
         <img src={logomain} alt="توضیح تصویر" className={styles.bannerImage} />
       </div>
 
-    
       <div
       ref={containerRef}
       className={styles.container}

@@ -268,7 +268,7 @@
             padding: 0;
             height: 140vh; /* Make it full height */
             background: linear-gradient( rgba(93,98,255,0.8 ),rgba(159,13,149,0.65 ) ,rgba(255,187,110,0.65 ));
-            width: 430px;
+            width: 530px;
             height: 1981px;
           }
           .box {
@@ -408,3 +408,155 @@
      
   }
         }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+          .background {
+              margin: 0;
+              padding: 0;
+              height:280vh; /* تنظیم ارتفاع برای تناسب */
+              background: linear-gradient(
+                  rgba(93, 98, 255, 0.8),
+                  rgba(159, 13, 149, 0.65),
+                  rgba(255, 187, 110, 0.65)
+              );
+              width: 100%; /* عرض کامل */
+          }
+   
+          .box {
+            width: 377px;
+            height: 708px;
+            position: absolute;
+            left: 220px; /* Adjust this value as needed */
+            top: 796px;
+            background-image: none;
+        }
+         .box1 {
+          width: 377px;
+          height: 556px;
+          position: absolute;
+          justify-content: center;
+          left: 220px;
+          top: 193px;
+          background-image: none;
+      }
+       .login-form input {
+        width: 90%;
+        margin: 5px 0;
+        margin-bottom: 20px;
+        margin-right: 10px;
+      }
+       .form input
+       {
+        width: 90%;
+        margin: 5px 0;
+   
+        margin-right: 10px;
+        margin-top: 15px;
+       }
+      .logo
+      {
+        height:60px;
+        width: 50px;
+        Left :270px;
+        Top: 35px;
+        background-image: url('./Logo_Menue2.png');
+      }
+      .box p, .box1 p {
+  
+  position: absolute;
+  width: 210px;
+  height: 26px;
+  left: 50px;
+  top: 40px;
+  font-family: "Doran";
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: right;
+  color: #c2f0ff;
+  
+    }
+  
+   
+      .form-container,
+      .login-form-container {
+          grid-template-columns: 1fr; /* تغییر به یک ستون */
+      } 
+      .login-form-container 
+      {
+        margin-left: 10px;
+        margin-top: 140px;
+  
+      }
+      .form-container
+      {
+        margin-left: 10px;
+        margin-top: 140px;
+        
+      }
+      .form
+    {
+      margin-bottom: 0px;
+    }
+      .path
+      {
+        margin: 0px;
+        display: none;
+      }
+      .log-rec
+      {
+        margin-top:10px;
+        margin-right:90px;
+        transform: scale(0.7); 
+         
+      }
+      .login-btn
+      {
+        margin-top:20px;
+        margin-left:115px;
+        width: 140px;
+      }
+      .submit-btn
+    {
+      margin-top:20px;
+        margin-left:115px;
+        width: 140px;
+    }
+      .logerror {
+          margin-right: 20px;
+          font-size:18px;
+        }
+        
+        .enum1
+        {
+             position: absolute;
+       
+            Left :210px;
+            Top: 110px;
+          
+        }
+    
+  
+
+  .form-container {
+   
+    grid-gap: 0px;
+  
+    margin-top: 150px;
+    padding: 0 20px;
+    
+  }    
+  
+  .error {
+    margin-top: 5px;
+    font-size:15px;
+   margin-right: 10px;
+  }
+  .rec
+  {
+    margin-top:10px;
+    margin-left:3px;
+    transform: scale(0.7); 
+     
+  }
+      }
